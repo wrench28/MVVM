@@ -7,6 +7,9 @@ import androidx.room.RoomDatabase
 import com.wrench.notebook.dao.EmployeeDao
 import com.wrench.notebook.model.Employee
 
+/**
+ * description : Room database is created here. Line17-36 is boilerplate code.
+ */
 @Database(entities = [Employee::class], version = 1, exportSchema = false)
 abstract class EmployeeDatabase : RoomDatabase() {
     abstract fun employeeDao(): EmployeeDao

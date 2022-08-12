@@ -37,6 +37,11 @@ class EmployeeAdapter(listner:ClickListner):RecyclerView.Adapter<EmployeeAdapter
         fun update(employee: Employee)
         fun delete(employee: Employee)
     }
+
+    /**
+     * description: will observe any change in data and notifies the view.
+     * @param employee: will recieve the updated data as list and assigns it.
+     */
     fun setData(employee: List<Employee>)
     {
         this.employeeList = employee

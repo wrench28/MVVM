@@ -24,18 +24,31 @@ class EmployeeViewModel(application: Application):AndroidViewModel(application) 
         repository = EmployeeRepository(employeeDao)
         readAllEmployeeData = repository.readAllEmployeeData
     }
+
+    /**
+     * description: addEmployee() calls in addEmployee() function from repository via coroutine scope.
+     * @param employee: Employee type data is passed to add employee to room db
+     */
     fun addEmployee(employee: Employee)
     {
         viewModelScope.launch(Dispatchers.IO) {
             repository.addEmployee(employee)
         }
     }
+    /**
+     * description: updateEmployee() calls in updateEmployee() function from repository via coroutine scope.
+     * @param employee: Employee type data is passed to update employee to room db
+     */
     fun updateEmployee(employee: Employee)
     {
         viewModelScope.launch(Dispatchers.IO) {
             repository.updateEmployee(employee)
         }
     }
+    /**
+     * description: deleteEmployee() calls in deleteEmployee() function from repository via coroutine scope.
+     * @param employee: Employee type data is passed to delete employee to room db
+     */
     fun deleteEmployee(employee: Employee)
     {
         viewModelScope.launch(Dispatchers.IO) {
