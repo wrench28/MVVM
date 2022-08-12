@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="rvListItem_consLayout_paddingVertical">10dp</dimen>
+    <dimen name="rvListItem_consLayout_paddingHorizontal">10dp</dimen>
+    <dimen name="rvListItem_tv_textSize">18sp</dimen>
+    <dimen name="rvListItem_tv_marginStart">20dp</dimen>
+    <dimen name="rvListItem_tv_marginHorizontal">10dp</dimen>
+    <dimen name="rvListItem_tv_marginTop">10dp</dimen>
+
+</resources>
