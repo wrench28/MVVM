@@ -50,5 +50,4 @@ class MainActivity : AppCompatActivity(), EmployeeAdapter.ClickListner {
     override fun delete(employee: Employee) {
         employeeViewModel.deleteEmployee(employee)
     }
-
 }

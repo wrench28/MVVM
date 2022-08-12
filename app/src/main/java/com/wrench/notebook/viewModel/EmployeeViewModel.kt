@@ -13,7 +13,8 @@ import kotlinx.coroutines.launch
 
 class EmployeeViewModel(application: Application):AndroidViewModel(application) {
     val readAllEmployeeData: LiveData<List<Employee>>
-    var manipulateButtonText: String = "Update"
+    val manipulateButtonTextUpdate: String
+    val manipulateButtonTextInsert: String
     private val repository: EmployeeRepository
     val insertionErrorMessage = "Data Invalid"
     val insertionSuccessMessage = "Data Inserted Successfully"
@@ -23,6 +24,8 @@ class EmployeeViewModel(application: Application):AndroidViewModel(application) 
         val employeeDao = EmployeeDatabase.getDatabase(application).employeeDao()
         repository = EmployeeRepository(employeeDao)
         readAllEmployeeData = repository.readAllEmployeeData
+        manipulateButtonTextUpdate = repository.manipulateButtonTextUpdate
+        manipulateButtonTextInsert = repository.manipulateButtonTextInsert
     }
 
     /**

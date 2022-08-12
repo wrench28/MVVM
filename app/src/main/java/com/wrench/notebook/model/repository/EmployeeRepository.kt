@@ -12,6 +12,12 @@ class EmployeeRepository(private val employeeDao: EmployeeDao) {
     val readAllEmployeeData: LiveData<List<Employee>> = employeeDao.readEmployees()
 
     /**
+     * description : texts for ManipulateEmployeeData view button.
+     */
+    val manipulateButtonTextUpdate: String = "Update"
+    val manipulateButtonTextInsert: String = "Insert"
+
+    /**
      * description : addEmployee function calls insert functions of Dao class and performs insert operation over room
      * @param employee : takes in Employee type data as parameter and passes the data to insert function's argument.
      */

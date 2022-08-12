@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.text.TextUtils
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import com.wrench.notebook.databinding.ActivityAddEmployeeBinding
 import com.wrench.notebook.model.Employee
@@ -15,17 +16,18 @@ class ManipulateEmployeeData : AppCompatActivity() {
     private lateinit var employeeViewModel: EmployeeViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//        binding= DataBindingUtil.setContentView(this,R.layout.activity_add_employee)
+        binding = ActivityAddEmployeeBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+//       binding= DataBindingUtil.setContentView(this,R.layout.activity_add_employee)
         employeeViewModel = ViewModelProvider(this)[EmployeeViewModel::class.java]
-        var flagUpdateOrInsert = intent.getIntExtra("update", 0)
+        val flagUpdateOrInsert = intent.getIntExtra("update", 0)
         if (flagUpdateOrInsert == 1) {
             supportActionBar?.title = "Update Employee Data"
-            binding.btnManipulate.text = "Insert"
-//            binding.btnManipulate.text = employeeViewModel.manipulateButtonText
+//            binding.btnManipulate.text = "Update"
+            binding.btnManipulate.text = employeeViewModel.manipulateButtonTextUpdate
             val name = intent.getStringExtra("employeeName").toString()
             val dept = intent.getStringExtra("employeeDept").toString()
             val id = intent.getIntExtra("employeeId", 0)
-
             binding.etName.setText(name)
             binding.etDept.setText(dept)
             binding.btnManipulate.setOnClickListener {
@@ -33,7 +35,8 @@ class ManipulateEmployeeData : AppCompatActivity() {
             }
         } else {
 //            employeeViewModel.manipulateButtonText = "Insert"
-            binding.btnManipulate.text = "Insert"
+            binding.btnManipulate.text = employeeViewModel.manipulateButtonTextInsert
+//            binding.btnManipulate.text = "Insert"
             supportActionBar?.title = "Insert Employee Data"
             binding.btnManipulate.setOnClickListener {
                 insertEmployee()
@@ -60,7 +63,7 @@ class ManipulateEmployeeData : AppCompatActivity() {
     }
 
     /**
-     * description: updatetEmployee() sets data to variable name,dept validates data using dataValidation
+     * description: updateEmployee() sets data to variable name,dept validates data using dataValidation
      *              and invokes updateEmployee() function from viewModel
      */
     private fun updateEmployee(id: Int) {
