@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.text.TextUtils
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import com.wrench.notebook.databinding.ActivityAddEmployeeBinding
 import com.wrench.notebook.model.Employee
